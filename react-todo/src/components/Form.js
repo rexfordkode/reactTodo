@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Form = ({setInputText, todos, setTodos, inputText}) => {
+const Form = ({setInputText, todos, setTodos, inputText, setStatus}) => {
   
   //Here I can write javascript code and function
   const inputTextHandler = (e) => {
@@ -17,6 +17,9 @@ const Form = ({setInputText, todos, setTodos, inputText}) => {
     ]);
     //Clear the input field to empty
     setInputText("");
+  };
+  const statusHandler = (e) =>{
+    setStatus(e.target.value)
   }
 
     return (
@@ -25,7 +28,7 @@ const Form = ({setInputText, todos, setTodos, inputText}) => {
         <button onClick={submitTodoHandler} className="todo-button" type="submit">
           <i className="fas fa-plus-square"></i>
         </button>
-        <div className="select">
+        <div onChange={statusHandler} className="select">
           <select name="todos" className="filter-todo">
             <option value="all">All</option>
             <option value="completed">Completed</option>
